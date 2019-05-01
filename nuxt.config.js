@@ -1,8 +1,9 @@
-import NuxtConfiguration from '@nuxt/config'
-import { resolve } from 'path'
+//import NuxtConfiguration from '@nuxt/config'
+//import { resolve } from 'path'
+const { resolve } = require('path')
 const pkg = require('./package')
 
-const config: NuxtConfiguration = {
+module.exports = {
   mode: 'universal',
 
   /*
@@ -53,17 +54,11 @@ const config: NuxtConfiguration = {
   apollo: {
     clientConfigs: {
       default: {
-	httpEndpoint: 'http://localhost:4000',
-	httpLinkOptions: {
+        httpEndpoint: 'http://localhost:3000/graphql',
+        httpLinkOptions: {
           credentials: 'same-origin'
-	},
-	wsEndpoint: 'ws://localhost:4000',
-	persisting: true,
-      },
-      test: {
-        httpEndpoint: 'http://localhost:5000',
-	wsEndpoint: 'ws://localhost:5000',
-	tokenName: 'apollo-token'
+        },
+        persisting: true,
       }
     }
   },
@@ -84,7 +79,7 @@ const config: NuxtConfiguration = {
      */
     extend(config, ctx) {
       // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
+      if (ctx.isDev && ctx.isClient && config.module) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -96,4 +91,4 @@ const config: NuxtConfiguration = {
   }
 }
 
-export default config
+//export default config

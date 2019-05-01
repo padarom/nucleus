@@ -1,4 +1,4 @@
-import * as express from 'express'
+import express from 'express'
 
 export interface ExpressExtension {
   bind(express: express.Application): Promise<any>

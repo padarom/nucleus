@@ -1,7 +1,8 @@
 scalar Token
 
 type Query {
-  hello: String
+  hosts: [Host],
+  host(id: ID): Host
 }
 
 type Host {
@@ -15,6 +16,22 @@ type Host {
 type Server {
   id: ID!
   host: Host!
+}
+
+type Pack {
+  id: ID!
+  shortname: String!
+  name: String!
+  description: String
+  author: String
+  version: String
+}
+
+type Flavor {
+  pack: Pack!
+  shortname: String!
+  name: String!
+  description: String
 }
 
 enum ControllableServerType {
