@@ -1,0 +1,23 @@
+scalar Token
+
+type Query {
+  hello: String
+}
+
+type Host {
+  id: ID!
+  hostname: String!
+  port: Int!
+  token: Token
+  serverType: ControllableServerType
+}
+
+type Server {
+  id: ID!
+  host: Host!
+}
+
+enum ControllableServerType {
+  AWS
+  AZURE
+}

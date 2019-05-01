@@ -8,7 +8,14 @@ mkdirp(resolve(__dirname, '../../live'), () => {})
 const db = low(new FileSync(resolve(__dirname, '../../live/db.json')))
 
 db.defaults({
-  host: [],
+  hosts: [
+    {
+      hostname: 'localhost',
+      port: '2511',
+      token: '',
+    }
+  ],
+  servers: [],
   users: []
 }).write()
 
