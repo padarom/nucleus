@@ -1,0 +1,9 @@
+{
+  "ignore": [".git", "node_modules"],
+  "watch": ["server"],
+  "exec": "ts-node server/index.ts",
+  "ext": "ts",
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
