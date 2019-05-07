@@ -10,25 +10,14 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import GetHostList from '~/queries/GetHostList.graphql'
 
 export default {
   apollo: {
     hosts: {
-      query: gql`
-        {
-          hosts {
-            id
-            hostname
-          }
-        }
-      `,
+      query: GetHostList,
       prefetch: true
     }
-  },
-
-  mounted() {
-    // console.log(this)
   }
 }
 </script>

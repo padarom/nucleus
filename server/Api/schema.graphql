@@ -1,9 +1,20 @@
 scalar Token
 
 type Query {
-  hosts: [Host],
+  hosts: [Host]
   host(id: ID): Host
+
+  servers: [Server]
+  servers(host: ID): [Server]
+  server(id: ID): Server
+
+  packs: [Pack]
+  pack(id: ID): Pack
 }
+
+# type Mutation {
+#
+# }
 
 type Host {
   id: ID!
@@ -16,6 +27,8 @@ type Host {
 type Server {
   id: ID!
   host: Host!
+  pack: Pack!
+  flavor: Flavor
 }
 
 type Pack {
@@ -25,6 +38,8 @@ type Pack {
   description: String
   author: String
   version: String
+  flavors: [Flavor]
+  ports: [PortMapping]
 }
 
 type Flavor {
@@ -34,10 +49,22 @@ type Flavor {
   description: String
 }
 
+type PortMapping {
+  host: Int!
+  client: Int!
+  type: PortType!
+  required: Boolean!
+}
+
 type User {
   id: ID!
   username: String!
   email: String
+}
+
+enum PortType {
+  UDP
+  TCP
 }
 
 enum ControllableServerType {

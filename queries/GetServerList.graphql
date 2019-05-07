@@ -1,0 +1,6 @@
+query GetServerList($host: ID!) {
+  servers(host: $host) {
+    id
+    hostname
+  }
+}

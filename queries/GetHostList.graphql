@@ -1,0 +1,6 @@
+{
+  hosts {
+    id
+    hostname
+  }
+}
