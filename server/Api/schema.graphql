@@ -34,7 +34,14 @@ type Flavor {
   description: String
 }
 
+type User {
+  id: ID!
+  username: String!
+  email: String
+}
+
 enum ControllableServerType {
   AWS
   AZURE
+  GOOGLE
 }

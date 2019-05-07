@@ -1,5 +1,3 @@
-//import NuxtConfiguration from '@nuxt/config'
-//import { resolve } from 'path'
 const { resolve } = require('path')
 const pkg = require('./package')
 
@@ -42,10 +40,13 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
-    ['nuxt-stylus-resources-loader', [
-      resolve(__dirname, 'assets/styl/mixins.styl'),
-      resolve(__dirname, 'assets/styl/variables.styl')
-    ]],
+    [
+      'nuxt-stylus-resources-loader',
+      [
+        resolve(__dirname, 'assets/styl/mixins.styl'),
+        resolve(__dirname, 'assets/styl/variables.styl')
+      ]
+    ]
   ],
 
   /**
@@ -90,5 +91,3 @@ module.exports = {
     }
   }
 }
-
-//export default config
